@@ -4,43 +4,237 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", system-ui, sans-serif;
-  background: linear-gradient(135deg, #fd92ff, #a8e9ff);
-  color: #f1f1f1ee;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Soft pinkish background */
+  background-color: #fce4ec; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
 }
 
-.page {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
+/* The main white card */
+.chat-window {
+  width: 90%;
+  max-width: 800px;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 20px;
+/* Top Gradient Header */
+.chat-header {
+  background: linear-gradient(to right, #ffafbd, #ffc3a0, #2193b0); /* Adjust to match your specific gradient */
+  padding: 30px;
+  color: white;
 }
 
-header h1 {
+.chat-header h1 {
   margin: 0;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-header p {
-  margin-top: 8px;
-  opacity: 0.8;
+/* Chat History Area */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
 }
 
-.chat-container {
-  background: rgba(251, 240, 255, 0.05);
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+/* Individual Message Bubbles */
+.message {
+  max-width: 70%;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.9rem;
-  opacity: 0.6;
+/* Incoming (Emma/Sophie) */
+.message.received {
+  align-self: flex-start;
+  background-color: #bbdefb; /* Soft Blue */
+  color: #444;
+  border-bottom-left-radius: 5px;
+}
+
+/* Outgoing (You) */
+.message.sent {
+  align-self: flex-end;
+  background-color: #f8bbd0; /* Soft Pink */
+  color: #444;
+  border-bottom-right-radius: 5px;
+}
+
+/* Bottom Input Area */
+.chat-input-area {
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 15px 25px;
+  border-radius: 30px;
+  border: 1px solid #eee;
+  background: #f9f9f9;
+  outline: none;
+}
+
+.send-btn {
+  background: #ff80ab;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Light lavender/pink background from the image */
+  background-color: #f6e6f4; 
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* The Main Container */
+.chat-card {
+  width: 700px;
+  height: 80vh;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Gradient Header */
+.header {
+  background: linear-gradient(90deg, #ff9a9e 0%, #fbc2eb 40%, #a1c4fd 100%);
+  padding: 30px 25px;
+  color: white;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header p {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Chat History Area */
+.messages-container {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: white;
+}
+
+/* Metadata (Name + Time) */
+.meta {
+  font-size: 11px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+/* Message Bubbles */
+.bubble {
+  max-width: 60%;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Glow effect */
+}
+
+/* Emma/Sophie style (Left side) */
+.received {
+  align-self: flex-start;
+  background-color: #c9e9ff; /* Soft pastel blue */
+  color: #445;
+}
+
+/* "You" style (Right side) */
+.sent-container {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.sent {
+  background-color: #ffc2e2; /* Soft pastel pink */
+  color: #445;
+}
+
+/* Bottom Input Bar */
+.input-section {
+  padding: 20px 30px 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.input-wrapper {
+  flex: 1;
+  background: white;
+  border-radius: 50px;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Soft floating look */
+  border: 1px solid #f0f0f0;
+}
+
+.input-wrapper input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+  color: #999;
+}
+
+.send-button {
+  background-color: #ffafcc;
+  border: none;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 175, 204, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
